@@ -30,16 +30,27 @@ public class GameManager : MonoBehaviour
         else if (instance != this)
             Destroy(gameObject);
 
-        possibleBurgerIngredients.Add("bun", 100);
+        // Burger choosing algorithm has to choose one of these
         possibleBurgerIngredients.Add("burger", 70);
         possibleBurgerIngredients.Add("chicken", 20);
-        possibleBurgerIngredients.Add("veggie", 20);
+        possibleBurgerIngredients.Add("veggie", 10);
+        // Algorithm will chose these at random
         possibleBurgerIngredients.Add("cheese", 70);
         possibleBurgerIngredients.Add("lettuce", 60);
         possibleBurgerIngredients.Add("tomato", 50);
         possibleBurgerIngredients.Add("onions", 40);
+        possibleBurgerIngredients.Add("pickles", 30);
         possibleBurgerIngredients.Add("ketchup", 70);
         possibleBurgerIngredients.Add("mustard", 30);
+        possibleBurgerIngredients.Add("secret sauce", 50);
+
+        // Salad algorithm has no guaranteed ingredients like the burger
+        possibleSaladIngredients.Add("chicken", 55);
+        possibleSaladIngredients.Add("tomato", 80);
+        possibleSaladIngredients.Add("onions", 65);
+        possibleSaladIngredients.Add("croutons", 90);
+        possibleSaladIngredients.Add("ranch", 100);
+        possibleSaladIngredients.Add("secret sauce", 20);
     }
 
 

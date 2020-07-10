@@ -34,8 +34,10 @@ public class Order : MonoBehaviour
         int rInt = r.Next(0, 4);
         if (rInt == 0)
         {
-            orderType = "salad";
-
+            createSaladOrder
+        } else
+        {
+            createBurgerOrder();
         }
 
     }
