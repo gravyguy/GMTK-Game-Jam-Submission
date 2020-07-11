@@ -2,14 +2,12 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Ingredient : MonoBehaviour
+public class Trash : MonoBehaviour
 {
-    public string name;
-
     // Start is called before the first frame update
     void Start()
     {
-        gameObject.transform.SetParent(GameObject.Find("IntObjContainer").transform);
+        
     }
 
     // Update is called once per frame
@@ -20,5 +18,7 @@ public class Ingredient : MonoBehaviour
 
     private void OnMouseDown()
     {
+        if (!(GameManager.instance.currentItem.tag == "tool"))
+            GameManager.instance.currentItem
     }
 }
