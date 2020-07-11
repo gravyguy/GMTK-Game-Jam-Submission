@@ -24,12 +24,13 @@ public class Order : MonoBehaviour
     {
         timeOfInitialization = Time.timeSinceLevelLoad;
         determineOrder();
+        this.gameObject.AddComponent(Text);
     }
 
     // Update is called once per frame
     void Update()
     {
-        this.gameObject.transform.position += new Vector3(1, 1, 0);
+
     }
 
     private void determineOrder()
