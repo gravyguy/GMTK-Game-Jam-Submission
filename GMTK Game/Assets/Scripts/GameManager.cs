@@ -10,23 +10,22 @@ using Vector3 = UnityEngine.Vector3;
 
 public class GameManager : MonoBehaviour
 {
-    public GameObject orderPrefab = null;
-    public List<GameObject> currentOrders;
-
     public static GameManager instance = null;
+    // Dictionaries to store possible ingredients for each order and their likelihood (100 means always a component, 0 means never).
+    public Dictionary<string, int> possibleBurgerIngredients = new Dictionary<string, int>();
+    public Dictionary<string, int> possibleSaladIngredients = new Dictionary<string, int>();
+    public GameObject orderPrefab;
+    public List<GameObject> currentOrders;
+    public GameObject currentItem;
+
     public int maxTimeBetweenGhosts;
     public int minTimeBetweenGhosts;
-
     // Gives player 20 seconds of time to prepare
     private double timeOfNextGhost = 20f;
     private double timeBetweenGhosts = 10f;
 
     private double timeOfNextOrder = 0f;
     private double timeBetweenOrders = 2f;
-
-    // Dictionaries to store possible ingredients for each order and their likelihood (100 means always a component, 0 means never).
-    public Dictionary<string, int> possibleBurgerIngredients = new Dictionary<string, int>();
-    public Dictionary<string, int> possibleSaladIngredients = new Dictionary<string, int>();
 
     // Boolean that determines if a ghost event was successfully completed
     private bool ghostEventSuccess = false;
@@ -68,7 +67,7 @@ public class GameManager : MonoBehaviour
         possibleGhostEvents.Add(rotVegetable);
         possibleGhostEvents.Add(reverseOrders);
 
-        //GameObject testOrder = Instantiate(orderPrefab);
+        //currentItem = GameObject.Find("GrillHead");
     }
 
 
@@ -76,6 +75,12 @@ public class GameManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (currentItem != null)
+        {
+            currentItem.transform.position = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+            currentItem.transform.position += new Vector3(0f, 0f, 10f);
+        }
+
         // Handles random ghost events
         if (Time.time > timeOfNextGhost)
         {
@@ -87,10 +92,11 @@ public class GameManager : MonoBehaviour
         }
 
         // Handles addition of new orders
-        if (Time.time > timeOfNextOrder && currentOrders.Count < 5)
+        if (Time.time > timeOfNextOrder && currentOrders.Count < 4)
         {
             timeOfNextOrder += timeBetweenOrders;
             GameObject newOrder = Instantiate(orderPrefab);
+            newOrder.transform.SetParent(GameObject.FindGameObjectWithTag("IntObjContainer").transform);
             currentOrders.Add(newOrder);
             repositionOrders();
         }

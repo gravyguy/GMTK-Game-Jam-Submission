@@ -40,16 +40,16 @@ public class Order : MonoBehaviour
         else
             orderTypeText.text = requiredIngredients[0] + " burger";
 
-        if (requiredIngredients[1] != null)
+        if (requiredIngredients.Count > 1)
             ingredient1.text = "-" + requiredIngredients[1];
 
-        if (requiredIngredients[2] != null)
+        if (requiredIngredients.Count > 2)
             ingredient2.text = "-" + requiredIngredients[2];
 
-        if (requiredIngredients[3] != null)
+        if (requiredIngredients.Count > 3)
             ingredient3.text = "-" + requiredIngredients[3];
 
-        if (requiredIngredients[4] != null)
+        if (requiredIngredients.Count > 4)
             ingredient4.text = "-" + requiredIngredients[4];
 
     }
