@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 using Random = System.Random;
 
 public class Order : MonoBehaviour
@@ -23,6 +24,7 @@ public class Order : MonoBehaviour
     {
         timeOfInitialization = Time.timeSinceLevelLoad;
         determineOrder();
+        this.gameObject.AddComponent(Text);
     }
 
     // Update is called once per frame

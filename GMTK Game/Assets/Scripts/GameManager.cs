@@ -5,6 +5,8 @@ using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 using System;
 using Random = System.Random;
+using System.Numerics;
+using Vector3 = UnityEngine.Vector3;
 
 public class GameManager : MonoBehaviour
 {
@@ -18,6 +20,9 @@ public class GameManager : MonoBehaviour
     // Gives player 20 seconds of time to prepare
     private double timeOfNextGhost = 20f;
     private double timeBetweenGhosts = 10f;
+
+    private double timeOfNextOrder = 0f;
+    private double timeBetweenOrders = 2f;
 
     // Dictionaries to store possible ingredients for each order and their likelihood (100 means always a component, 0 means never).
     public Dictionary<string, int> possibleBurgerIngredients = new Dictionary<string, int>();
@@ -63,7 +68,7 @@ public class GameManager : MonoBehaviour
         possibleGhostEvents.Add(rotVegetable);
         possibleGhostEvents.Add(reverseOrders);
 
-        GameObject testOrder = Instantiate(orderPrefab);
+        //GameObject testOrder = Instantiate(orderPrefab);
     }
 
 
@@ -79,6 +84,23 @@ public class GameManager : MonoBehaviour
             // Calculating time before next ghost event:
             Random r = new Random();
             timeBetweenGhosts = 5 + r.NextDouble() * 10;
+        }
+
+        // Handles addition of new orders
+        if (Time.time > timeOfNextOrder && currentOrders.Count < 5)
+        {
+            timeOfNextOrder += timeBetweenOrders;
+            GameObject newOrder = Instantiate(orderPrefab);
+            currentOrders.Add(newOrder);
+            repositionOrders();
+        }
+    }
+
+    private void repositionOrders()
+    {
+        for (int i = 0; i < currentOrders.Count; i++)
+        {
+            currentOrders[i].transform.position = new Vector3(5f, 3.5f, 0f) + new Vector3((float)(-2.5f * (currentOrders.Count - i - 1)), 0, 0);
         }
     }
 
