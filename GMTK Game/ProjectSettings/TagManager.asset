@@ -6,6 +6,7 @@ TagManager:
   tags:
   - IntObjContainer
   - StaticObjContainer
+  - Grilled
   layers:
   - Default
   - TransparentFX

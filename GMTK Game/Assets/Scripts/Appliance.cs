@@ -11,7 +11,7 @@ public class Appliance : MonoBehaviour
     // The current item on this appliance
     private GameObject placedItem;
     
-    string type;
+    public string type;
     static List<string> possibleTypes = new List<string>();
     //GameObject cur
 
@@ -22,6 +22,7 @@ public class Appliance : MonoBehaviour
         possibleTypes.Add("choppingBoard");
         if (possibleTypes.Contains(type))
             Debug.LogError("Invalid Appliance Type: " + type);
+
     }
 
     // Update is called once per frame
@@ -32,18 +33,27 @@ public class Appliance : MonoBehaviour
 
     private void OnMouseDown()
     {
-
-        if(placedItem == null && GameManager.instance.currentItem != null)
+        switch (type)
         {
-            GameManager.instance.currentItem.transform.position = this.transform.position;
-            placedItem = GameManager.instance.currentItem;
-            GameManager.instance.currentItem = null;
+            case "grill":
+                if (GameManager.instance.currentItem != null && GameManager.instance.currentItem.tag == "Grilled" && placedItem == null)
+                {
+                    GameManager.instance.currentItem.transform.position = this.transform.position;
+                    placedItem = GameManager.instance.currentItem;
+                    GameManager.instance.currentItem = null;
+                }
+                else if (placedItem != null && GameManager.instance.currentItem == null)
+                {
+                    GameManager.instance.currentItem = placedItem;
+                    placedItem = null;
+                }
+                break;
+
+            case "choppingBoard":
+                break;
         }
 
-        else if (placedItem != null && GameManager.instance.currentItem == null)
-        {
-            GameManager.instance.currentItem = placedItem;
-            placedItem = null;
-        }
+
+        
     }
 }

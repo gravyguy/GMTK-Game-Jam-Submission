@@ -134,4 +134,17 @@ public class Order : MonoBehaviour
 
         return points;
     }
+
+    private void OnMouseDown()
+    {
+        if(GameManager.instance.currentItem == null)
+        {
+            GameManager.instance.currentItem = this.gameObject;
+        }
+        else if(GameManager.instance.currentItem == this.gameObject)
+        {
+            GameManager.instance.currentItem = null;
+            GameManager.instance.repositionOrders();
+        }
+    }
 }
