@@ -19,12 +19,39 @@ public class Order : MonoBehaviour
     public string orderType;
     public List<string> requiredIngredients = new List<string>();
 
+    public TextMesh orderNumber;
+    public TextMesh orderTypeText;
+    public TextMesh ingredient1;
+    public TextMesh ingredient2;
+    public TextMesh ingredient3;
+    public TextMesh ingredient4;
+
     // Start is called before the first frame update
     void Start()
     {
         timeOfInitialization = Time.timeSinceLevelLoad;
         determineOrder();
-        this.gameObject.AddComponent(Text);
+
+        orderNumber.text = "Order #" + GameManager.instance.currentOrders.Count;
+        if (orderType == "salad")
+            orderTypeText.text = "salad";
+        else if (requiredIngredients[0] == "burger")
+            orderTypeText.text = "burger";
+        else
+            orderTypeText.text = requiredIngredients[0] + " burger";
+
+        if (requiredIngredients[1] != null)
+            ingredient1.text = "-" + requiredIngredients[1];
+
+        if (requiredIngredients[2] != null)
+            ingredient2.text = "-" + requiredIngredients[2];
+
+        if (requiredIngredients[3] != null)
+            ingredient3.text = "-" + requiredIngredients[3];
+
+        if (requiredIngredients[4] != null)
+            ingredient4.text = "-" + requiredIngredients[4];
+
     }
 
     // Update is called once per frame
