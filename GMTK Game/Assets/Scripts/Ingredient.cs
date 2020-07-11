@@ -9,7 +9,7 @@ public class Ingredient : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        gameObject.transform.SetParent(GameObject.Find("IntObjContainer").transform);
+        transform.SetParent(GameObject.FindGameObjectWithTag("IntObjContainer").transform);
     }
 
     // Update is called once per frame
