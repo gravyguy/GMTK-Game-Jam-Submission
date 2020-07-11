@@ -15,4 +15,8 @@ public class Ingredient : MonoBehaviour
     {
         
     }
+
+    private void OnMouseDown()
+    {
+    }
 }

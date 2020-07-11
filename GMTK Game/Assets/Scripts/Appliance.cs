@@ -8,6 +8,9 @@ using UnityEngine;
 /// </summary>
 public class Appliance : MonoBehaviour
 {
+    // The current item on this appliance
+    private GameObject placedItem;
+    
     string type;
     static List<string> possibleTypes = new List<string>();
     //GameObject cur
@@ -29,7 +32,18 @@ public class Appliance : MonoBehaviour
 
     private void OnMouseDown()
     {
-        if (type == "grill")
-            return;
+
+        if(placedItem == null && GameManager.instance.currentItem != null)
+        {
+            GameManager.instance.currentItem.transform.position = this.transform.position;
+            placedItem = GameManager.instance.currentItem;
+            GameManager.instance.currentItem = null;
+        }
+
+        else if (placedItem != null && GameManager.instance.currentItem == null)
+        {
+            GameManager.instance.currentItem = placedItem;
+            placedItem = null;
+        }
     }
 }
