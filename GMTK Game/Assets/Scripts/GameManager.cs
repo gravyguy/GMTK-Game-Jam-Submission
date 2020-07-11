@@ -8,6 +8,9 @@ using Random = System.Random;
 
 public class GameManager : MonoBehaviour
 {
+    public GameObject orderPrefab = null;
+    public List<GameObject> currentOrders;
+
     public static GameManager instance = null;
     public int maxTimeBetweenGhosts;
     public int minTimeBetweenGhosts;
@@ -17,8 +20,8 @@ public class GameManager : MonoBehaviour
     private double timeBetweenGhosts = 10f;
 
     // Dictionaries to store possible ingredients for each order and their likelihood (100 means always a component, 0 means never).
-    public Dictionary<string, int> possibleBurgerIngredients;
-    public Dictionary<string, int> possibleSaladIngredients;
+    public Dictionary<string, int> possibleBurgerIngredients = new Dictionary<string, int>();
+    public Dictionary<string, int> possibleSaladIngredients = new Dictionary<string, int>();
 
     // Boolean that determines if a ghost event was successfully completed
     private bool ghostEventSuccess = false;
@@ -59,6 +62,8 @@ public class GameManager : MonoBehaviour
         possibleGhostEvents.Add(clogCondiments);
         possibleGhostEvents.Add(rotVegetable);
         possibleGhostEvents.Add(reverseOrders);
+
+        GameObject testOrder = Instantiate(orderPrefab);
     }
 
 
@@ -66,6 +71,7 @@ public class GameManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        // Handles random ghost events
         if (Time.time > timeOfNextGhost)
         {
             timeOfNextGhost += timeBetweenGhosts;
