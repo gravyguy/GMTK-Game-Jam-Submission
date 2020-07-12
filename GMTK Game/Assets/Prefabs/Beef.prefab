@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 6881339093597222454}
   - component: {fileID: 3333726447639487251}
   - component: {fileID: 7365633515978044481}
+  - component: {fileID: 5621157161917707434}
   m_Layer: 0
   m_Name: Beef
   m_TagString: Grilled
@@ -95,3 +96,21 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   name: beef
+--- !u!114 &5621157161917707434
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5466443553206530520}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e6e32053545272946a34749a36858f83, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  undercookTime: 300
+  cookTime: 600
+  overcookTime: 900
+  undercookSprite: {fileID: 21300000, guid: dd15f7d8d1fbf0b4dac64a37590a0695, type: 3}
+  cookedSprite: {fileID: 21300000, guid: bd023e9d78652be40a6a64d8a5d91eb7, type: 3}
+  overcookSprite: {fileID: 21300000, guid: 31eda2859ae810b4e95e6c4bd62558c9, type: 3}

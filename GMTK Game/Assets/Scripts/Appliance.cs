@@ -11,7 +11,8 @@ public class Appliance : MonoBehaviour
 {
     // The current item on this appliance
     private GameObject placedItem;
-    
+
+
     public string type;
     public bool heatOn;
     static List<string> possibleTypes = new List<string>();
@@ -30,7 +31,10 @@ public class Appliance : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        if(heatOn && placedItem != null)
+        {
+            placedItem.GetComponent<Cooking>().Cook();
+        }
     }
 
     private void OnMouseDown()
