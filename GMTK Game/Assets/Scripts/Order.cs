@@ -67,7 +67,7 @@ public class Order : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if ((Time.time - timeOfInitialization) > cutoffForLifeLoss && GameManager.instance != null)
+        if ((Time.timeSinceLevelLoad - timeOfInitialization) > cutoffForLifeLoss && GameManager.instance != null)
         {
             GameManager.instance.livesLeft -= 1;
             GameManager.instance.livesText.text = "" + GameManager.instance.livesLeft;
@@ -149,7 +149,7 @@ public class Order : MonoBehaviour
         int orderPoints = 0;
         int ingredientDiff = 0;
 
-        float timeToMake = Time.time - timeOfInitialization;
+        float timeToMake = Time.timeSinceLevelLoad - timeOfInitialization;
         if (timeToMake < cutoffForLifeLoss)
         {
             orderPoints += (int)Math.Round(10 * (cutoffForLifeLoss / (timeToMake + 5)));

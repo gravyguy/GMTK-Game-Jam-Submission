@@ -100,7 +100,7 @@ public class GameManager : MonoBehaviour
         }
 
         // Handles random ghost events
-        if (Time.time > timeOfNextGhost)
+        if (Time.timeSinceLevelLoad > timeOfNextGhost)
         {
             timeOfNextGhost += timeBetweenGhosts;
             ghostEvent();
@@ -110,7 +110,7 @@ public class GameManager : MonoBehaviour
         }
 
         // Handles addition of new orders
-        if (Time.time > timeOfNextOrder && currentOrders.Count < 5)
+        if (Time.timeSinceLevelLoad > timeOfNextOrder && currentOrders.Count < 5)
         {
             orderNumber++;
             timeBetweenOrders = timeBetweenOrders * .95;
@@ -121,7 +121,7 @@ public class GameManager : MonoBehaviour
             repositionOrders();
         }
 
-        if (Time.time > timeOfNextVO)
+        if (Time.timeSinceLevelLoad > timeOfNextVO)
         {
             Random r = new Random();
             int rInt = r.Next(1, 4);
