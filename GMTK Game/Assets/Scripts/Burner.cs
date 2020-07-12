@@ -39,7 +39,7 @@ public class Burner : MonoBehaviour
             Debug.Log("Grill Off");
             stateOn = false;
             spriteRenderer.sprite = grillOff;
-            grill.heatOn = true;
+            grill.heatOn = false;
            
         }
         else
@@ -47,7 +47,7 @@ public class Burner : MonoBehaviour
             Debug.Log("Grill On");
             stateOn = true;
             spriteRenderer.sprite = grillOn;
-            grill.heatOn = false;
+            grill.heatOn = true;
         }
     }
 }
