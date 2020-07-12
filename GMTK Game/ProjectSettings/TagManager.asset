@@ -13,6 +13,8 @@ TagManager:
   - Whole
   - Ticket
   - Burner
+  - Condiment Container
+  - Grill Spot
   layers:
   - Default
   - TransparentFX

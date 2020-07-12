@@ -199,7 +199,7 @@ SpriteRenderer:
   m_Size: {x: 4.51, y: 1.48}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 0
+  m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!4 &120980107 stripped
@@ -290,7 +290,7 @@ SpriteRenderer:
   m_Size: {x: 4, y: 2.25}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 0
+  m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!4 &191862140
@@ -701,6 +701,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: BurnerTopRight
+      objectReference: {fileID: 0}
+    - target: {fileID: 8767424825271644541, guid: 8d37915b001350648b35d1cf7b000227,
+        type: 3}
+      propertyPath: m_TagString
+      value: Burner
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8d37915b001350648b35d1cf7b000227, type: 3}
@@ -1424,6 +1429,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: BurnerBottomRight
       objectReference: {fileID: 0}
+    - target: {fileID: 8767424825271644541, guid: 8d37915b001350648b35d1cf7b000227,
+        type: 3}
+      propertyPath: m_TagString
+      value: Burner
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8d37915b001350648b35d1cf7b000227, type: 3}
 --- !u!4 &666977119 stripped
@@ -1479,6 +1489,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: GrillHeadBottomLeft
+      objectReference: {fileID: 0}
+    - target: {fileID: 8001732710208192540, guid: a58456717c92af54a891ba8fbb4c937f,
+        type: 3}
+      propertyPath: m_TagString
+      value: Grill Spot
       objectReference: {fileID: 0}
     - target: {fileID: 8001732710208192541, guid: a58456717c92af54a891ba8fbb4c937f,
         type: 3}
@@ -1548,130 +1563,6 @@ PrefabInstance:
     m_RemovedComponents:
     - {fileID: 8001732710208192515, guid: a58456717c92af54a891ba8fbb4c937f, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: a58456717c92af54a891ba8fbb4c937f, type: 3}
---- !u!1001 &758259644
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 2828115689028883088, guid: 1dca666d4f0cf404d8235222ce8cf6e1,
-        type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2828115689028883088, guid: 1dca666d4f0cf404d8235222ce8cf6e1,
-        type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2828115689028883088, guid: 1dca666d4f0cf404d8235222ce8cf6e1,
-        type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2828115689028883088, guid: 1dca666d4f0cf404d8235222ce8cf6e1,
-        type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2828115689028883088, guid: 1dca666d4f0cf404d8235222ce8cf6e1,
-        type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2828115689028883088, guid: 1dca666d4f0cf404d8235222ce8cf6e1,
-        type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2828115689028883088, guid: 1dca666d4f0cf404d8235222ce8cf6e1,
-        type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 2828115689028883088, guid: 1dca666d4f0cf404d8235222ce8cf6e1,
-        type: 3}
-      propertyPath: m_RootOrder
-      value: 9
-      objectReference: {fileID: 0}
-    - target: {fileID: 2828115689028883088, guid: 1dca666d4f0cf404d8235222ce8cf6e1,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2828115689028883088, guid: 1dca666d4f0cf404d8235222ce8cf6e1,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2828115689028883088, guid: 1dca666d4f0cf404d8235222ce8cf6e1,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2828115689028883088, guid: 1dca666d4f0cf404d8235222ce8cf6e1,
-        type: 3}
-      propertyPath: m_AnchoredPosition.x
-      value: 5
-      objectReference: {fileID: 0}
-    - target: {fileID: 2828115689028883088, guid: 1dca666d4f0cf404d8235222ce8cf6e1,
-        type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: 3.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 2828115689028883088, guid: 1dca666d4f0cf404d8235222ce8cf6e1,
-        type: 3}
-      propertyPath: m_SizeDelta.x
-      value: 5.26
-      objectReference: {fileID: 0}
-    - target: {fileID: 2828115689028883088, guid: 1dca666d4f0cf404d8235222ce8cf6e1,
-        type: 3}
-      propertyPath: m_SizeDelta.y
-      value: 6.81
-      objectReference: {fileID: 0}
-    - target: {fileID: 2828115689028883088, guid: 1dca666d4f0cf404d8235222ce8cf6e1,
-        type: 3}
-      propertyPath: m_AnchorMin.x
-      value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 2828115689028883088, guid: 1dca666d4f0cf404d8235222ce8cf6e1,
-        type: 3}
-      propertyPath: m_AnchorMin.y
-      value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 2828115689028883088, guid: 1dca666d4f0cf404d8235222ce8cf6e1,
-        type: 3}
-      propertyPath: m_AnchorMax.x
-      value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 2828115689028883088, guid: 1dca666d4f0cf404d8235222ce8cf6e1,
-        type: 3}
-      propertyPath: m_AnchorMax.y
-      value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 2828115689028883088, guid: 1dca666d4f0cf404d8235222ce8cf6e1,
-        type: 3}
-      propertyPath: m_Pivot.x
-      value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 2828115689028883088, guid: 1dca666d4f0cf404d8235222ce8cf6e1,
-        type: 3}
-      propertyPath: m_Pivot.y
-      value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 4001620119862375352, guid: 1dca666d4f0cf404d8235222ce8cf6e1,
-        type: 3}
-      propertyPath: m_Name
-      value: Order
-      objectReference: {fileID: 0}
-    - target: {fileID: 6681893286583629018, guid: 1dca666d4f0cf404d8235222ce8cf6e1,
-        type: 3}
-      propertyPath: m_LocalScale.y
-      value: 0.9
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 1dca666d4f0cf404d8235222ce8cf6e1, type: 3}
 --- !u!1 &816028707
 GameObject:
   m_ObjectHideFlags: 0
@@ -2036,6 +1927,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: BurnerBottomLeft
+      objectReference: {fileID: 0}
+    - target: {fileID: 8767424825271644541, guid: 8d37915b001350648b35d1cf7b000227,
+        type: 3}
+      propertyPath: m_TagString
+      value: Burner
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8d37915b001350648b35d1cf7b000227, type: 3}
@@ -2822,6 +2718,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: GrillHeadTopRight
       objectReference: {fileID: 0}
+    - target: {fileID: 8001732710208192540, guid: a58456717c92af54a891ba8fbb4c937f,
+        type: 3}
+      propertyPath: m_TagString
+      value: Grill Spot
+      objectReference: {fileID: 0}
     - target: {fileID: 8001732710208192541, guid: a58456717c92af54a891ba8fbb4c937f,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -3034,6 +2935,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: GrillHeadTopLeft
+      objectReference: {fileID: 0}
+    - target: {fileID: 8001732710208192540, guid: a58456717c92af54a891ba8fbb4c937f,
+        type: 3}
+      propertyPath: m_TagString
+      value: Grill Spot
       objectReference: {fileID: 0}
     - target: {fileID: 8001732710208192541, guid: a58456717c92af54a891ba8fbb4c937f,
         type: 3}
@@ -3434,6 +3340,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: GrillHeadBottomRight
+      objectReference: {fileID: 0}
+    - target: {fileID: 8001732710208192540, guid: a58456717c92af54a891ba8fbb4c937f,
+        type: 3}
+      propertyPath: m_TagString
+      value: Grill Spot
       objectReference: {fileID: 0}
     - target: {fileID: 8001732710208192541, guid: a58456717c92af54a891ba8fbb4c937f,
         type: 3}
@@ -3895,6 +3806,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: SecretSauceContainer
       objectReference: {fileID: 0}
+    - target: {fileID: 9139831024760579520, guid: cc13e51daecf2ef4faffc36b3d724e17,
+        type: 3}
+      propertyPath: m_TagString
+      value: Condiment Container
+      objectReference: {fileID: 0}
     - target: {fileID: 9139831024760579521, guid: cc13e51daecf2ef4faffc36b3d724e17,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -4135,6 +4051,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: KetchupContainer
       objectReference: {fileID: 0}
+    - target: {fileID: 5540720980241619075, guid: 88e273b50e3c6784498dea5132e7e4fa,
+        type: 3}
+      propertyPath: m_TagString
+      value: Condiment Container
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 88e273b50e3c6784498dea5132e7e4fa, type: 3}
 --- !u!1001 &7325578055950967035
@@ -4310,6 +4231,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: MustardContainer
       objectReference: {fileID: 0}
+    - target: {fileID: 8740901086473856357, guid: 2e9640db4bac2434d8d27fdc86dbca27,
+        type: 3}
+      propertyPath: m_TagString
+      value: Condiment Container
+      objectReference: {fileID: 0}
     - target: {fileID: 8740901086473856359, guid: 2e9640db4bac2434d8d27fdc86dbca27,
         type: 3}
       propertyPath: m_Size.x
@@ -4403,6 +4329,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: BurnerTopLeft
+      objectReference: {fileID: 0}
+    - target: {fileID: 8767424825271644541, guid: 8d37915b001350648b35d1cf7b000227,
+        type: 3}
+      propertyPath: m_TagString
+      value: Burner
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8d37915b001350648b35d1cf7b000227, type: 3}
