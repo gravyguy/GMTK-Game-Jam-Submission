@@ -148,11 +148,12 @@ public class Order : MonoBehaviour
         int totalIngredients = 0;
         int orderPoints = 0;
         int ingredientDiff = 0;
+        float timeMultiplier = 0;
 
         float timeToMake = Time.timeSinceLevelLoad - timeOfInitialization;
         if (timeToMake < cutoffForLifeLoss)
         {
-            orderPoints += (int)Math.Round(10 * (cutoffForLifeLoss / (timeToMake + 5)));
+            timeMultiplier = (int)Math.Round((cutoffForLifeLoss / (timeToMake + 5)));
         }
 
         Plate plate = GameObject.Find("Plate").GetComponent<Plate>();
@@ -184,14 +185,14 @@ public class Order : MonoBehaviour
         }
         if (plate.badMeat)
         {
-            orderPoints -= 10;
+            orderPoints -= 50;
             Debug.Log("Penalized for bad meat");
         }
 
         ingredientDiff = Math.Abs(totalIngredients - plate.currentIngredientNames.Count);
-        orderPoints -= 5;
+        orderPoints =  (int)Math.Round(timeMultiplier * orderPoints);
 
-        if (numWrongIngredients > 1)
+        if (orderPoints < 0)
         {
             orderPoints -= 10;
             GameManager.instance.livesLeft -= 1;

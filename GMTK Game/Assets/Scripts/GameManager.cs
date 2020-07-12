@@ -93,6 +93,12 @@ public class GameManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            Application.Quit();
+        }
+
         if (currentItem != null)
         {
             currentItem.transform.position = Camera.main.ScreenToWorldPoint(Input.mousePosition);
