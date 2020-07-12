@@ -7,9 +7,13 @@ using System;
 using Random = System.Random;
 using System.Numerics;
 using Vector3 = UnityEngine.Vector3;
+using Unity.Mathematics;
 
 public class GameManager : MonoBehaviour
 {
+
+    private double timeOfNextVO = 15f;
+    private double timeBetweenVO = 15f;
     public int points;
     public int orderNumber;
     public int livesLeft;
@@ -75,8 +79,6 @@ public class GameManager : MonoBehaviour
         possibleGhostEvents.Add(changeHeat);
         possibleGhostEvents.Add(moveMeat);
         possibleGhostEvents.Add(changeLabels);
-        possibleGhostEvents.Add(clogCondiments);
-        possibleGhostEvents.Add(rotVegetable);
         possibleGhostEvents.Add(reverseOrders);
 
         //currentItem = GameObject.Find("GrillHead");
@@ -113,6 +115,14 @@ public class GameManager : MonoBehaviour
             newOrder.transform.SetParent(GameObject.FindGameObjectWithTag("IntObjContainer").transform);
             currentOrders.Add(newOrder);
             repositionOrders();
+        }
+
+        if (Time.time > timeOfNextVO)
+        {
+            Random r = new Random();
+            int rInt = r.Next(1, 7);
+            AudioManagerScript.PlaySound("looksgood" + rInt);
+            timeOfNextVO += timeBetweenVO;
         }
     }
 
@@ -157,13 +167,10 @@ public class GameManager : MonoBehaviour
     /// </summary>
     private void changeHeat()
     {
-        // Will return false if there is not meat on the grill
-        if (false)
-        {
-            return;
-        }
+        Random r = new Random();
+        GameObject[] burners = GameObject.FindGameObjectsWithTag("Burner");
 
-        //DO STUFF HERE
+        burners[r.Next(0, burners.Length)].GetComponent<Burner>().ChangeGrillState();
 
         ghostEventSuccess = true;
         return;
@@ -174,14 +181,35 @@ public class GameManager : MonoBehaviour
     /// </summary>
     private void moveMeat()
     {
+        Random r = new Random();
+        List<GameObject> grillWithMeat = new List<GameObject>();
+        List<GameObject> openGrill = new List<GameObject>();
+        GameObject meatGrill;
+        GameObject targetGrill;
 
+        foreach (GameObject orders in GameObject.FindGameObjectsWithTag("Grill Spot"))
+        {
+            if(orders.GetComponent<Appliance>().placedItem != null)
+            {
+                grillWithMeat.Add(orders);
+            }
+            else
+            {
+                openGrill.Add(orders);
+            }
+        }
         // Will return false if there is no meat on the grill
-        if (false)
+        if (grillWithMeat.Count == 4 || openGrill.Count == 4)
         {
             return;
         }
 
-        // DO STUFF HERE
+        meatGrill = grillWithMeat[r.Next(0, grillWithMeat.Count)];
+        targetGrill = openGrill[r.Next(0, openGrill.Count)];
+
+        targetGrill.GetComponent<Appliance>().placedItem = meatGrill.GetComponent<Appliance>().placedItem;
+        targetGrill.GetComponent<Appliance>().placedItem.transform.position = targetGrill.transform.position;
+        meatGrill.GetComponent<Appliance>().placedItem = null;
 
         ghostEventSuccess = true;
         return;
@@ -192,45 +220,50 @@ public class GameManager : MonoBehaviour
     /// </summary>
     private void changeLabels()
     {
-        // DO STUFF HERE
+        Debug.Log("Switching Condiments");
+        if(currentItem != null && currentItem.tag == "Condiment Container")
+        {
+            return;
+        }
+
+        GameObject[] bottles = GameObject.FindGameObjectsWithTag("Condiment Container");
+        Random r = new Random();
+        Vector3 tempPos;
+        int rand1;
+        int rand2;
+
+
+
+        for(int i = 0; i < 4; i++)
+        {
+            rand1 = r.Next(0, bottles.Length);
+            rand2 = r.Next(0, bottles.Length);
+            tempPos = bottles[rand1].transform.position;
+            bottles[rand1].transform.position = bottles[rand2].transform.position;
+            bottles[rand2].transform.position = tempPos;
+        }
 
         ghostEventSuccess = true;
         return;
     }
 
-    /// <summary>
-    ///  Causes the condiment bottle to squeeze unnaturally next time the player picks one up
-    /// </summary>
-    private void clogCondiments()
-    {
-        // DO STUFF HERE
-
-        ghostEventSuccess = true;
-        return;
-    }
-
-    /// <summary>
-    ///  Chooses a random vegetable to be rotten the next time the player picks it up
-    /// </summary>
-    private void rotVegetable()
-    {
-        // DO STUFF HERE
-
-        ghostEventSuccess = true;
-        return;
-    }
 
     /// <summary>
     ///  Causes all order tickets to appear upsideown
     /// </summary>
     private void reverseOrders()
     {
+        Random r = new Random();
         // Will return false if there is no orders currently to flip
-        if (false)
+        if (GameObject.FindGameObjectsWithTag("Ticket").Length == 0)
         {
             return;
         }
-
+        foreach (GameObject orders in GameObject.FindGameObjectsWithTag("Ticket"))
+        {
+            if(r.NextDouble() > 0.5f)
+            orders.transform.Rotate(0f, 0f, 180f);
+        }
         ghostEventSuccess = true;
         return;
     }
