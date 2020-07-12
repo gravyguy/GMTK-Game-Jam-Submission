@@ -64,10 +64,10 @@ public class Order : MonoBehaviour
     {
         Random r = new Random();
         int rInt = r.Next(0, 4);
-        if (rInt == 0)
-            createSaladOrder();
-        else
-            createBurgerOrder();
+        //if (rInt == 0)
+        //    createSaladOrder();
+        //else
+        createBurgerOrder();
 
         foreach (string item in requiredIngredients)
         {

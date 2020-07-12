@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 418495027}
   - component: {fileID: 418495029}
   - component: {fileID: 418495028}
+  - component: {fileID: 1043748577}
   m_Layer: 5
   m_Name: OrderType
   m_TagString: Untagged
@@ -93,6 +94,17 @@ TextMesh:
   m_Color:
     serializedVersion: 2
     rgba: 4278190080
+--- !u!210 &1043748577
+SortingGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 418495026}
+  m_Enabled: 1
+  m_SortingLayerID: 979931833
+  m_SortingLayer: 3
+  m_SortingOrder: 0
 --- !u!1 &853897249
 GameObject:
   m_ObjectHideFlags: 0
@@ -104,6 +116,7 @@ GameObject:
   - component: {fileID: 853897250}
   - component: {fileID: 853897252}
   - component: {fileID: 853897251}
+  - component: {fileID: 1043748576}
   m_Layer: 5
   m_Name: Ingredient1
   m_TagString: Untagged
@@ -186,6 +199,17 @@ TextMesh:
   m_Color:
     serializedVersion: 2
     rgba: 4278190080
+--- !u!210 &1043748576
+SortingGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 853897249}
+  m_Enabled: 1
+  m_SortingLayerID: 979931833
+  m_SortingLayer: 3
+  m_SortingOrder: 0
 --- !u!1 &3885007571633041493
 GameObject:
   m_ObjectHideFlags: 0
@@ -197,6 +221,7 @@ GameObject:
   - component: {fileID: 2851735963409328004}
   - component: {fileID: 268921816423423885}
   - component: {fileID: 2332710830061024172}
+  - component: {fileID: 1043748575}
   m_Layer: 5
   m_Name: Ingredient2
   m_TagString: Untagged
@@ -279,6 +304,17 @@ TextMesh:
   m_Color:
     serializedVersion: 2
     rgba: 4278190080
+--- !u!210 &1043748575
+SortingGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3885007571633041493}
+  m_Enabled: 1
+  m_SortingLayerID: 979931833
+  m_SortingLayer: 3
+  m_SortingOrder: 0
 --- !u!1 &4001620119862375352
 GameObject:
   m_ObjectHideFlags: 0
@@ -447,6 +483,7 @@ GameObject:
   - component: {fileID: 3932996849337503786}
   - component: {fileID: 4883519968532242733}
   - component: {fileID: 116616733421924628}
+  - component: {fileID: 1043748573}
   m_Layer: 5
   m_Name: Ingredient4
   m_TagString: Untagged
@@ -529,6 +566,17 @@ TextMesh:
   m_Color:
     serializedVersion: 2
     rgba: 4278190080
+--- !u!210 &1043748573
+SortingGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5394267738214153513}
+  m_Enabled: 1
+  m_SortingLayerID: 979931833
+  m_SortingLayer: 3
+  m_SortingOrder: 0
 --- !u!1 &6713214660619121717
 GameObject:
   m_ObjectHideFlags: 0
@@ -540,6 +588,7 @@ GameObject:
   - component: {fileID: 3458785547451233694}
   - component: {fileID: 5384808751431167609}
   - component: {fileID: 4346463802833831645}
+  - component: {fileID: 1043748574}
   m_Layer: 5
   m_Name: Ingredient3
   m_TagString: Untagged
@@ -622,6 +671,17 @@ TextMesh:
   m_Color:
     serializedVersion: 2
     rgba: 4278190080
+--- !u!210 &1043748574
+SortingGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6713214660619121717}
+  m_Enabled: 1
+  m_SortingLayerID: 979931833
+  m_SortingLayer: 3
+  m_SortingOrder: 0
 --- !u!1 &7486241907584010237
 GameObject:
   m_ObjectHideFlags: 0
@@ -633,6 +693,7 @@ GameObject:
   - component: {fileID: 6681893286583629018}
   - component: {fileID: 8721498365711553469}
   - component: {fileID: 1659563344680261263}
+  - component: {fileID: 1043748578}
   m_Layer: 5
   m_Name: OrderNumberText
   m_TagString: Untagged
@@ -715,3 +776,14 @@ TextMesh:
   m_Color:
     serializedVersion: 2
     rgba: 4278190080
+--- !u!210 &1043748578
+SortingGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7486241907584010237}
+  m_Enabled: 1
+  m_SortingLayerID: 979931833
+  m_SortingLayer: 3
+  m_SortingOrder: 0

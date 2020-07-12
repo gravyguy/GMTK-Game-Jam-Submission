@@ -23,7 +23,7 @@ public class Appliance : MonoBehaviour
     {
         possibleTypes.Add("grill");
         possibleTypes.Add("choppingBoard");
-        if (possibleTypes.Contains(type))
+        if (!possibleTypes.Contains(type))
             Debug.LogError("Invalid Appliance Type: " + type);
 
     }

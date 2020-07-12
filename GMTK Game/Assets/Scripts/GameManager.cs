@@ -33,8 +33,13 @@ public class GameManager : MonoBehaviour
     // List of possible methods the game manager can call when choosing a ghost event
     private List<Action> possibleGhostEvents = new List<Action>();
 
+    private void Awake()
+    {
+        this.gameObject.SetActive(false);
+    }
+
     // Start is called before the first frame update
-    void Awake()
+    void Start()
     {
         if (instance == null)
             instance = this;
@@ -92,7 +97,7 @@ public class GameManager : MonoBehaviour
         }
 
         // Handles addition of new orders
-        if (Time.time > timeOfNextOrder && currentOrders.Count < 4)
+        if (Time.time > timeOfNextOrder && currentOrders.Count < 5)
         {
             timeOfNextOrder += timeBetweenOrders;
             GameObject newOrder = Instantiate(orderPrefab);
