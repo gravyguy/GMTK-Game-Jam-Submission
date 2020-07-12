@@ -156,6 +156,7 @@ public class Order : MonoBehaviour
         }
 
         Plate plate = GameObject.Find("Plate").GetComponent<Plate>();
+        int numWrongIngredients = 0;
         for (int i = 0; i < requiredIngredients.Count; i++)
         {
             if(plate.currentIngredientNames.Contains(requiredIngredients[i] + "(Clone)"))
@@ -166,6 +167,7 @@ public class Order : MonoBehaviour
             } else
             {
                 orderPoints -= 5;
+                numWrongIngredients++;
             }
         }
         if (plate.currentIngredientNames.Contains("BottomBun(Clone)"))
@@ -188,6 +190,14 @@ public class Order : MonoBehaviour
 
         ingredientDiff = Math.Abs(totalIngredients - plate.currentIngredientNames.Count);
         orderPoints -= 5;
+
+        if (numWrongIngredients > 1)
+        {
+            orderPoints -= 10;
+            GameManager.instance.livesLeft -= 1;
+            GameManager.instance.livesText.text = "" + GameManager.instance.livesLeft;
+            GameManager.instance.checkIfGameOver();
+        }
 
         //Debug.Log(orderPoints);
 
