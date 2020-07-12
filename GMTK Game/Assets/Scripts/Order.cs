@@ -16,6 +16,7 @@ public class Order : MonoBehaviour
     public int maxIngredients = 5;
     public bool onPlate;
     public Plate plateToUse;
+    public Text pointsText;
 
     private BoxCollider2D collider;
     [SerializeField]
@@ -34,6 +35,7 @@ public class Order : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        pointsText = GameObject.Find("CurrentPoints").GetComponent<Text>();
         cutoffForLifeLoss = 30f;
         collider = GetComponent<BoxCollider2D>();
         onPlate = false;
@@ -68,6 +70,7 @@ public class Order : MonoBehaviour
         if ((Time.time - timeOfInitialization) > cutoffForLifeLoss)
         {
             GameManager.instance.livesLeft -= 1;
+            GameManager.instance.livesText.text = "" + GameManager.instance.livesLeft;
             GameManager.instance.checkIfGameOver();
             GameManager.instance.currentOrders.Remove(this.gameObject);
             Destroy(this.gameObject);
@@ -156,6 +159,9 @@ public class Order : MonoBehaviour
                 totalIngredients++;
                 orderPoints += 5;
                 Debug.Log("Scored " + requiredIngredients[i]);
+            } else
+            {
+                orderPoints -= 5;
             }
         }
         if (plate.currentIngredientNames.Contains("BottomBun(Clone)"))
@@ -179,11 +185,14 @@ public class Order : MonoBehaviour
         ingredientDiff = Math.Abs(totalIngredients - plate.currentIngredientNames.Count);
         orderPoints -= 5;
 
-        Debug.Log(orderPoints);
+        //Debug.Log(orderPoints);
+
 
         GameObject.FindObjectOfType<Plate>().removeAllIngredients();
 
         GameManager.instance.points += orderPoints;
+        pointsText.text = ("Score: " + GameManager.instance.points);
+
         GameManager.instance.currentOrders.Remove(this.gameObject);
         Destroy(this.gameObject);
     }

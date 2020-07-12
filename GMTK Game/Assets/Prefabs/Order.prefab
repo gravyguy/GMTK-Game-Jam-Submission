@@ -379,6 +379,7 @@ MonoBehaviour:
   maxIngredients: 5
   onPlate: 0
   plateToUse: {fileID: 0}
+  pointsText: {fileID: 0}
   cutoffForLifeLoss: 0
   timeOfInitialization: 0
   orderType: 

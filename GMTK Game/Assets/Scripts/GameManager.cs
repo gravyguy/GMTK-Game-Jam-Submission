@@ -14,6 +14,8 @@ public class GameManager : MonoBehaviour
     public int orderNumber;
     public int livesLeft;
 
+    public Text livesText;
+    public Text gameOverText;
     public static GameManager instance = null;
     // Dictionaries to store possible ingredients for each order and their likelihood (100 means always a component, 0 means never).
     public Dictionary<string, int> possibleBurgerIngredients = new Dictionary<string, int>();
@@ -46,7 +48,9 @@ public class GameManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        gameOverText.gameObject.SetActive(false);
         livesLeft = 5;
+        livesText.text = "" + livesLeft;
         points = 0;
         if (instance == null)
             instance = this;
@@ -58,7 +62,7 @@ public class GameManager : MonoBehaviour
         possibleBurgerIngredients.Add("Lettuce", 60);
         possibleBurgerIngredients.Add("Tomato", 50);
         possibleBurgerIngredients.Add("Onions", 40);
-        possibleBurgerIngredients.Add("Pickles", 30);
+        //possibleBurgerIngredients.Add("Pickles", 30);
         possibleBurgerIngredients.Add("Ketchup", 70);
         possibleBurgerIngredients.Add("Mustard", 30);
         possibleBurgerIngredients.Add("SecretSauce", 50);
@@ -107,7 +111,7 @@ public class GameManager : MonoBehaviour
         if (Time.time > timeOfNextOrder && currentOrders.Count < 5)
         {
             orderNumber++;
-            timeBetweenOrders = timeBetweenOrders * .97;
+            timeBetweenOrders = timeBetweenOrders * .95;
             timeOfNextOrder += timeBetweenOrders;
             GameObject newOrder = Instantiate(orderPrefab);
             newOrder.transform.SetParent(GameObject.FindGameObjectWithTag("IntObjContainer").transform);
@@ -120,6 +124,7 @@ public class GameManager : MonoBehaviour
     {
         if (livesLeft <= 0)
         {
+            gameOverText.gameObject.SetActive(true);
             Destroy(this.gameObject);
         }
     }
