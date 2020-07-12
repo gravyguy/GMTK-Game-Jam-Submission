@@ -23,7 +23,7 @@ public class Plate : MonoBehaviour
         {
             if(onTrash)
             {
-
+                removeAllIngredients();
             }
             else {
                 GameManager.instance.currentItem = null;
@@ -67,7 +67,8 @@ public class Plate : MonoBehaviour
     public void removeAllIngredients()
     {
         for (int i = currentIngredients.Count - 1; i >= 0; i--)
-            currentIngredients.RemoveAt(i);          
+            Destroy(currentIngredients[i]);
+        currentIngredients.Clear();
     }
 
     public void removeLastIngredient()
