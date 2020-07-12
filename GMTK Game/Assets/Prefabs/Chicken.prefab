@@ -111,9 +111,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ingredient: {fileID: 0}
   cooked: 0
-  undercookTime: 1500
-  cookTime: 3000
-  overcookTime: 4500
+  undercookTime: 150
+  cookTime: 300
+  overcookTime: 450
   undercookSprite: {fileID: 21300000, guid: e040e1aced297be4e9bce9803c29dfdb, type: 3}
   cookedSprite: {fileID: 21300000, guid: db47f081846f879448da4cf32bd81f51, type: 3}
   overcookSprite: {fileID: 21300000, guid: eaeb3ae6298748b45af69ebe3d717241, type: 3}

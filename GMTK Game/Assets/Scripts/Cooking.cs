@@ -6,9 +6,9 @@ public class Cooking : MonoBehaviour
 {
     public GameObject ingredient;
     public bool cooked = false;
-    public int undercookTime = 900;
-    public int cookTime = 1800;
-    public int overcookTime = 2700;
+    public int undercookTime = 90;
+    public int cookTime = 180;
+    public int overcookTime = 270;
 
     private int cookPercentage = 0;
 
