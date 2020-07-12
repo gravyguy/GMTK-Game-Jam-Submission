@@ -124,8 +124,9 @@ public class GameManager : MonoBehaviour
         if (Time.time > timeOfNextVO)
         {
             Random r = new Random();
-            int rInt = r.Next(1, 7);
-            AudioManagerScript.PlaySound("looksgood" + rInt);
+            int rInt = r.Next(1, 4);
+            if (!GameObject.Find("AudioManager").GetComponent<AudioSource>().isPlaying)
+                AudioManagerScript.PlaySound("looksgood" + rInt);
             timeOfNextVO += timeBetweenVO;
         }
     }
