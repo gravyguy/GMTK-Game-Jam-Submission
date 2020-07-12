@@ -7,6 +7,8 @@ public class Plate : MonoBehaviour
 {
     List<GameObject> currentIngredients;
     private BoxCollider2D collider;
+    private bool onTrash = false;
+
 
     // Start is called before the first frame update
     void Start()
@@ -19,7 +21,7 @@ public class Plate : MonoBehaviour
     {
         if (GameManager.instance.currentItem == this.gameObject)
         {
-            if(collider.IsTouching(GameObject.Find("TrashCan").GetComponent<BoxCollider2D>()))
+            if(onTrash)
             {
 
             }
@@ -45,10 +47,27 @@ public class Plate : MonoBehaviour
         }
     }
 
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.name == "TrashCan")
+        {
+            onTrash = true;
+        }
+    }
+
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+        if (onTrash)
+        {
+            onTrash = false;
+        }
+    }
+
     public void removeAllIngredients()
     {
-        for (int i = 0; i < currentIngredients.Count - 1; i++)
-            currentIngredients.RemoveAt(i);
+        for (int i = currentIngredients.Count - 1; i >= 0; i--)
+            currentIngredients.RemoveAt(i);          
     }
 
     public void removeLastIngredient()
