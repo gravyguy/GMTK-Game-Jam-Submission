@@ -21,7 +21,7 @@ public class Knife : MonoBehaviour
             GameManager.instance.currentItem = this.gameObject;
 
         }
-        else if(!onBoard)
+        else if(!onBoard && GameManager.instance.currentItem == this.gameObject)
         {
             GameManager.instance.currentItem = null;
             MoveToCenter();
