@@ -19,7 +19,7 @@ public class Trash : MonoBehaviour
 
     private void OnMouseDown()
     {
-        if (!(GameManager.instance.currentItem.tag == "tool"))
+        if (!(GameManager.instance.currentItem.tag == "Tool"))
             Destroy(GameManager.instance.currentItem);
     }
 }

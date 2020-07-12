@@ -9,6 +9,7 @@ TagManager:
   - Grilled
   - Chopped
   - Condiments
+  - Tool
   layers:
   - Default
   - TransparentFX
