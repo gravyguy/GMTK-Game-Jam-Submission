@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditorInternal;
 using UnityEngine;
 
 /// <summary>
@@ -12,6 +13,7 @@ public class Appliance : MonoBehaviour
     private GameObject placedItem;
     
     public string type;
+    public bool heatOn;
     static List<string> possibleTypes = new List<string>();
     //GameObject cur
 
