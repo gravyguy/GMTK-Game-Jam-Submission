@@ -16,38 +16,38 @@ public class Knife : MonoBehaviour
 
     private void OnMouseDown()
     {
-        if (GameManager.instance.currentItem == this.gameObject)
-        {
-            if(!onBoard)
-            {
-                GameManager.instance.currentItem = null;
-                MoveToCenter();
-            }
-        }
-        else
+        if (GameManager.instance.currentItem == null)
         {
             GameManager.instance.currentItem = this.gameObject;
+
+        }
+        else if(!onBoard)
+        {
+            GameManager.instance.currentItem = null;
+            MoveToCenter();
         }
     }
 
-
     private void OnTriggerStay2D(Collider2D collision)
     {
-        if(collision.name == "BoardSpotRight" || collision.name == "BoardSpotLeft" || collision.name == "BoardSpotMiddle")
+        if (collision.gameObject.tag == "Cutting Board")
         {
             onBoard = true;
         }
-        else
-        {
-            onBoard = false;
-        }
-
-        if (Input.GetMouseButtonDown(0) && onBoard)
+        if (Input.GetMouseButtonDown(0) && collision.gameObject.tag == "Cutting Board")
         {
             if(collision.gameObject.GetComponent<Appliance>().placedItem != null)
             {
                 collision.gameObject.GetComponent<Appliance>().placedItem.tag = "Chopped";
             }
+        }
+    }
+
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+        if (onBoard)
+        {
+            onBoard = false;
         }
     }
 

@@ -15,6 +15,7 @@ TagManager:
   - Burner
   - Condiment Container
   - Grill Spot
+  - Cutting Board
   layers:
   - Default
   - TransparentFX
