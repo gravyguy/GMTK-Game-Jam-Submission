@@ -67,7 +67,7 @@ public class Order : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if ((Time.time - timeOfInitialization) > cutoffForLifeLoss)
+        if ((Time.time - timeOfInitialization) > cutoffForLifeLoss && GameManager.instance != null)
         {
             GameManager.instance.livesLeft -= 1;
             GameManager.instance.livesText.text = "" + GameManager.instance.livesLeft;
@@ -141,6 +141,10 @@ public class Order : MonoBehaviour
 
     public void CompleteOrder()
     {
+        Random r = new Random();
+        int rInt = r.Next(1, 6);
+        AudioManagerScript.PlaySound("orderup" + rInt);
+
         int totalIngredients = 0;
         int orderPoints = 0;
         int ingredientDiff = 0;
