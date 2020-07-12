@@ -5,7 +5,7 @@ using UnityEngine;
 public class Cooking : MonoBehaviour
 {
     public GameObject ingredient;
-
+    public bool cooked = false;
     public int undercookTime = 900;
     public int cookTime = 1800;
     public int overcookTime = 2700;
@@ -27,16 +27,24 @@ public class Cooking : MonoBehaviour
     void Update()
     {
         if (cookPercentage > overcookTime)
+        {
             spriteRenderer.sprite = overcookSprite;
+            cooked = false;
+        }
         else if (cookPercentage > cookTime)
+        {
             spriteRenderer.sprite = cookedSprite;
+            cooked = true;
+        }
         else if (cookPercentage > undercookTime)
+        {
             spriteRenderer.sprite = undercookSprite;
+            cooked = false;
+        }
     }
 
     public void Cook()
     {
-        Debug.Log("Cooking");
         cookPercentage++;
     }
 }

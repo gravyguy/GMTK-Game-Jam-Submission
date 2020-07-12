@@ -128,7 +128,7 @@ public class GameManager : MonoBehaviour
         {
             //Checks if not holding an order
             if(GameManager.instance.currentItem != currentOrders[i])
-            currentOrders[i].transform.position = new Vector3(5f, 3.5f, 0f) + new Vector3((float)(-2.5f * (currentOrders.Count - i - 1)), 0, 0);
+            currentOrders[i].transform.position = new Vector3(5f, 2.1f, 0f) + new Vector3((float)(-2.5f * (currentOrders.Count - i - 1)), 0, 0);
         }
     }
 

@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Security.Cryptography;
 using UnityEngine;
 using UnityEngine.UI;
 using Random = System.Random;
@@ -137,7 +138,9 @@ public class Order : MonoBehaviour
 
     public void CompleteOrder()
     {
+        int totalIngredients = 0;
         int orderPoints = 0;
+        int ingredientDiff = 0;
 
         float timeToMake = Time.time - timeOfInitialization;
         if (timeToMake < cutoffForLifeLoss)
@@ -146,17 +149,37 @@ public class Order : MonoBehaviour
         }
 
         Plate plate = GameObject.Find("Plate").GetComponent<Plate>();
-        for (int i = 0; i < plate.currentIngredients.Count - 1; i++)
+        for (int i = 0; i < requiredIngredients.Count; i++)
         {
-            //Debug.Log(plate.currentIngredients[i].name + "Hey");
-            if (requiredIngredients.Contains(plate.currentIngredients[i].name + "(Clone)"));
+            if(plate.currentIngredientNames.Contains(requiredIngredients[i] + "(Clone)"))
             {
+                totalIngredients++;
                 orderPoints += 5;
-                requiredIngredients.Remove(plate.currentIngredients[i].name);
-                Debug.Log("You scored for ingredient: " + plate.currentIngredients[i].name);
+                Debug.Log("Scored " + requiredIngredients[i]);
             }
         }
+        if (plate.currentIngredientNames.Contains("BottomBun(Clone)"))
+        {
+            orderPoints += 5;
+            totalIngredients++;
+            Debug.Log("Scored Bottom Bun");
+        }
+        if (plate.currentIngredientNames.Contains("TopBun(Clone)"))
+        {
+            orderPoints += 5;
+            totalIngredients++;
+            Debug.Log("Scored Top Bun");
+        }
+        if (plate.badMeat)
+        {
+            orderPoints -= 10;
+            Debug.Log("Penalized for bad meat");
+        }
 
+        ingredientDiff = Math.Abs(totalIngredients - plate.currentIngredientNames.Count);
+        orderPoints -= 5;
+
+        Debug.Log(orderPoints);
 
         GameObject.FindObjectOfType<Plate>().removeAllIngredients();
 

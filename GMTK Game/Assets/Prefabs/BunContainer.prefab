@@ -26,9 +26,9 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5164874538234681424}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 5.21, y: -1.55, z: 0}
-  m_LocalScale: {x: 0.64, y: 0.64, z: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 4.36, y: 0.22, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -72,7 +72,7 @@ SpriteRenderer:
   m_SortingLayerID: -473339217
   m_SortingLayer: 2
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: cbf6a765588822a40871c88f5cd113ef, type: 3}
+  m_Sprite: {fileID: 21300000, guid: bac7d3bcfc3776e4db517df38d618269, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -95,7 +95,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 32f35fb13be8ed5428169df72a253746, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  foodToCreate: {fileID: 391809065603059435, guid: 414d996605b2246468d1c6f0b3d9e9c8,
+  foodToCreate: {fileID: 5466443553206530520, guid: b0fbd9b0e78737d4c946dbfc699858f3,
     type: 3}
 --- !u!61 &5164874538234681428
 BoxCollider2D:
@@ -114,7 +114,7 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 2.75, y: 1.08}
+    oldSize: {x: 3.07, y: 1.43}
     newSize: {x: 1.86, y: 1.93}
     adaptiveTilingThreshold: 0.5
     drawMode: 0

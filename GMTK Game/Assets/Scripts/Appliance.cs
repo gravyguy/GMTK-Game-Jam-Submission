@@ -10,7 +10,7 @@ using UnityEngine;
 public class Appliance : MonoBehaviour
 {
     // The current item on this appliance
-    private GameObject placedItem;
+    public GameObject placedItem;
 
 
     public string type;
@@ -56,6 +56,17 @@ public class Appliance : MonoBehaviour
                 break;
 
             case "choppingBoard":
+                if (GameManager.instance.currentItem != null && GameManager.instance.currentItem.tag == "Whole" && placedItem == null)
+                {
+                    GameManager.instance.currentItem.transform.position = this.transform.position;
+                    placedItem = GameManager.instance.currentItem;
+                    GameManager.instance.currentItem = null;
+                }
+                else if (placedItem != null && GameManager.instance.currentItem == null)
+                {
+                    GameManager.instance.currentItem = placedItem;
+                    placedItem = null;
+                }
                 break;
         }
 

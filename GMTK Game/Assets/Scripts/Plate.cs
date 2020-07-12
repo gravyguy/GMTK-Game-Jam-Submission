@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Runtime.CompilerServices;
 using UnityEngine;
@@ -6,8 +7,10 @@ using UnityEngine;
 public class Plate : MonoBehaviour
 {
     public List<GameObject> currentIngredients;
+    public List<String> currentIngredientNames;
     private bool onTrash = false;
     private Vector3 pos;
+    public bool badMeat;
 
 
     // Start is called before the first frame update
@@ -24,6 +27,7 @@ public class Plate : MonoBehaviour
             if(onTrash)
             {
                 removeAllIngredients();
+                badMeat = false;
             }
             else {
                 GameManager.instance.currentItem = null;
@@ -35,9 +39,14 @@ public class Plate : MonoBehaviour
             if (GameManager.instance.currentItem.tag == "Grilled" || GameManager.instance.currentItem.tag == "Chopped" || GameManager.instance.currentItem.tag == "Condiments")
             {
                 GameManager.instance.currentItem.transform.position = this.transform.position;
-                GameManager.instance.currentItem.transform.position += new Vector3(0f, .08f * currentIngredients.Count, 0f);
+                GameManager.instance.currentItem.transform.position += new Vector3(0f, .1f * currentIngredients.Count, 0f);
                 GameManager.instance.currentItem.transform.SetParent(this.transform);
                 currentIngredients.Add(GameManager.instance.currentItem);
+                currentIngredientNames.Add(GameManager.instance.currentItem.name);
+                if(GameManager.instance.currentItem.tag == "Grilled" && !GameManager.instance.currentItem.GetComponent<Cooking>().cooked)
+                {
+                    badMeat = true;
+                }
                 GameManager.instance.currentItem = null;
             }
         }
@@ -67,6 +76,7 @@ public class Plate : MonoBehaviour
         for (int i = currentIngredients.Count - 1; i >= 0; i--)
             Destroy(currentIngredients[i]);
         currentIngredients.Clear();
+        currentIngredientNames.Clear();
     }
 
     public void removeLastIngredient()

@@ -28,7 +28,7 @@ Transform:
   m_GameObject: {fileID: 5466443553206530520}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.62, y: 0.63, z: 1}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -72,7 +72,7 @@ SpriteRenderer:
   m_SortingLayerID: 979931833
   m_SortingLayer: 3
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 17f16f0ea8cc2a5448675407bc521a32, type: 3}
+  m_Sprite: {fileID: 21300000, guid: a2a3ab82cf8a978489ed5b8a258b33c7, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -96,6 +96,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   name: beef
+  choppedSprite: {fileID: 0}
 --- !u!114 &5621157161917707434
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -108,9 +109,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e6e32053545272946a34749a36858f83, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  ingredient: {fileID: 0}
+  cooked: 0
   undercookTime: 300
   cookTime: 600
   overcookTime: 900
-  undercookSprite: {fileID: 21300000, guid: dd15f7d8d1fbf0b4dac64a37590a0695, type: 3}
-  cookedSprite: {fileID: 21300000, guid: bd023e9d78652be40a6a64d8a5d91eb7, type: 3}
-  overcookSprite: {fileID: 21300000, guid: 31eda2859ae810b4e95e6c4bd62558c9, type: 3}
+  undercookSprite: {fileID: 21300000, guid: 5012091e4259d3d4fa0e83c805417e12, type: 3}
+  cookedSprite: {fileID: 21300000, guid: 74ef137b05d604b4daca3720b42e7069, type: 3}
+  overcookSprite: {fileID: 21300000, guid: 4553f26f414e5544dbdb4adabece3dff, type: 3}

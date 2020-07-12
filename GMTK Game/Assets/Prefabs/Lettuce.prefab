@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 2998421867288296760}
   m_Layer: 0
   m_Name: Lettuce
-  m_TagString: Untagged
+  m_TagString: Whole
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -27,7 +27,7 @@ Transform:
   m_GameObject: {fileID: 7858749256614319823}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.62, y: 0.63, z: 1}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -71,7 +71,7 @@ SpriteRenderer:
   m_SortingLayerID: 979931833
   m_SortingLayer: 3
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: da2f638f3c5160a41b9daf88364d59a1, type: 3}
+  m_Sprite: {fileID: 21300000, guid: d4482f5d265e7754ca838341d2b30a92, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -95,3 +95,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   name: lettuce
+  choppedSprite: {fileID: 21300000, guid: f66cdfc98014d0f49b1bac511de10e4f, type: 3}

@@ -10,6 +10,7 @@ TagManager:
   - Chopped
   - Condiments
   - Tool
+  - Whole
   layers:
   - Default
   - TransparentFX

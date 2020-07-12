@@ -28,7 +28,7 @@ Transform:
   m_GameObject: {fileID: 8767424825271644541}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -0.73, y: -1.47, z: 0}
-  m_LocalScale: {x: 0.5, y: 0.5, z: 1}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -72,7 +72,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 82941edb9a424ca4486646413d4e6af0, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 89bac9d2478749d49adc94cca53210c1, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -95,8 +95,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b7b99971abdc0b04bbaa9db7af78f46a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  grillOn: {fileID: 21300000, guid: 2f9906250aa642f4988d40c85a5d32af, type: 3}
-  grillOff: {fileID: 21300000, guid: 82941edb9a424ca4486646413d4e6af0, type: 3}
+  grillOn: {fileID: 21300000, guid: 8e3f6283832702048909b3847c6286ec, type: 3}
+  grillOff: {fileID: 21300000, guid: 89bac9d2478749d49adc94cca53210c1, type: 3}
   stateOn: 0
   grill: {fileID: 0}
 --- !u!61 &-4379805561417103781
@@ -116,7 +116,7 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 0.78, y: 0.97}
+    oldSize: {x: 0.63, y: 0.58}
     newSize: {x: 0.78, y: 0.97}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
