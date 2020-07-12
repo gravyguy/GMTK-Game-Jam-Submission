@@ -10,6 +10,8 @@ using Vector3 = UnityEngine.Vector3;
 
 public class GameManager : MonoBehaviour
 {
+    public int points;
+
     public static GameManager instance = null;
     // Dictionaries to store possible ingredients for each order and their likelihood (100 means always a component, 0 means never).
     public Dictionary<string, int> possibleBurgerIngredients = new Dictionary<string, int>();
@@ -41,6 +43,7 @@ public class GameManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        points = 0;
         if (instance == null)
             instance = this;
         else if (instance != this)

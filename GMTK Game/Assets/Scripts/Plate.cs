@@ -51,9 +51,7 @@ public class Plate : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.name == "TrashCan")
-        {
             onTrash = true;
-        }
     }
 
     private void OnTriggerExit2D(Collider2D collision)

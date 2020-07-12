@@ -13,6 +13,9 @@ public class Order : MonoBehaviour
     public int chickenRarity = 20;
     public int veggieRarity = 10;
     public int maxIngredients = 5;
+    public bool onPlate;
+
+    private BoxCollider2D collider;
 
     public float cutoffForFullPoints;
     public float timeOfInitialization;
@@ -29,6 +32,8 @@ public class Order : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        collider = GetComponent<BoxCollider2D>();
+        onPlate = false;
         timeOfInitialization = Time.timeSinceLevelLoad;
         determineOrder();
 
@@ -122,17 +127,35 @@ public class Order : MonoBehaviour
         }
     }
 
-    public int CompleteOrder()
+    public void CompleteOrder()
     {
-        int points = 0;
+        int orderPoints = 0;
 
         float timeToMake = Time.time - timeOfInitialization;
         if (timeToMake < cutoffForFullPoints)
-            points += 50;
+            orderPoints += 50;
         else
-            points += 50 * (int)Math.Round(timeToMake / cutoffForFullPoints);
+            orderPoints += 50 * (int)Math.Round(timeToMake / cutoffForFullPoints);
 
-        return points;
+        GameObject.FindObjectOfType<Plate>().removeAllIngredients();
+
+        GameManager.instance.points += orderPoints;
+        GameManager.instance.currentOrders.Remove(this.gameObject);
+        Destroy(this.gameObject);
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.name == "Plate")
+            onPlate = true;
+    }
+
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+        if (onPlate)
+        {
+            onPlate = false;
+        }
     }
 
     private void OnMouseDown()
@@ -143,8 +166,15 @@ public class Order : MonoBehaviour
         }
         else if(GameManager.instance.currentItem == this.gameObject)
         {
-            GameManager.instance.currentItem = null;
-            GameManager.instance.repositionOrders();
+            if (onPlate)
+            {
+                CompleteOrder();
+            }
+
+            else {
+                GameManager.instance.currentItem = null;
+                GameManager.instance.repositionOrders();
+            }
         }
     }
 }
