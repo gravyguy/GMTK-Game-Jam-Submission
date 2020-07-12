@@ -6,15 +6,15 @@ using UnityEngine;
 public class Plate : MonoBehaviour
 {
     List<GameObject> currentIngredients;
-    private BoxCollider2D collider;
     private bool onTrash = false;
+    private Vector3 pos;
 
 
     // Start is called before the first frame update
     void Start()
     {
         currentIngredients = new List<GameObject>();
-        collider = GetComponent<BoxCollider2D>();
+        pos = this.gameObject.transform.position;
     }
 
     private void OnMouseDown()
@@ -76,6 +76,6 @@ public class Plate : MonoBehaviour
 
     private void MoveToCenter()
     {
-        this.gameObject.transform.position = new Vector3(1.2f, -4f, 0f);
+        this.gameObject.transform.position = pos;
     }
 }
