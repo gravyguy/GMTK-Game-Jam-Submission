@@ -373,12 +373,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   defaultBurgerTime: 30
-  defaultSaladTime: 20
   burgerRarity: 70
   chickenRarity: 20
   veggieRarity: 10
   maxIngredients: 5
-  cutoffForFullPoints: 0
+  onPlate: 0
+  plateToUse: {fileID: 0}
+  cutoffForLifeLoss: 0
   timeOfInitialization: 0
   orderType: 
   requiredIngredients: []
@@ -456,7 +457,7 @@ BoxCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}

@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class Plate : MonoBehaviour
 {
-    List<GameObject> currentIngredients;
+    public List<GameObject> currentIngredients;
     private bool onTrash = false;
     private Vector3 pos;
 

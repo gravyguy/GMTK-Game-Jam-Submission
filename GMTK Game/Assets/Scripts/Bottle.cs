@@ -21,7 +21,7 @@ public class Bottle : MonoBehaviour
         if (GameManager.instance.currentItem == null)
         {
             GameManager.instance.currentItem = this.gameObject;
-            Debug.Log("Made it");
+            //Debug.Log("Made it");
         } else if (GameManager.instance.currentItem == this.gameObject && GetComponent<BoxCollider2D>().IsTouching(GameObject.Find("Plate").GetComponent<BoxCollider2D>()))
         {
 

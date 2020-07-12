@@ -7,17 +7,18 @@ using Random = System.Random;
 
 public class Order : MonoBehaviour
 {
-    public float defaultBurgerTime = 30f;
-    public float defaultSaladTime = 20f;
+    public float defaultBurgerTime = 10f;
+    //public float defaultSaladTime = 20f;
     public int burgerRarity = 70;
     public int chickenRarity = 20;
     public int veggieRarity = 10;
     public int maxIngredients = 5;
     public bool onPlate;
+    public Plate plateToUse;
 
     private BoxCollider2D collider;
-
-    public float cutoffForFullPoints;
+    [SerializeField]
+    private float cutoffForLifeLoss;
     public float timeOfInitialization;
     public string orderType;
     public List<string> requiredIngredients = new List<string>();
@@ -32,12 +33,13 @@ public class Order : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        cutoffForLifeLoss = 10f;
         collider = GetComponent<BoxCollider2D>();
         onPlate = false;
         timeOfInitialization = Time.timeSinceLevelLoad;
         determineOrder();
 
-        orderNumber.text = "Order #" + GameManager.instance.currentOrders.Count;
+        orderNumber.text = "Order #" + GameManager.instance.orderNumber;
         if (orderType == "salad")
             orderTypeText.text = "salad";
         else if (requiredIngredients[0] == "burger")
@@ -62,7 +64,13 @@ public class Order : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
+        if ((Time.time - timeOfInitialization) > cutoffForLifeLoss)
+        {
+            GameManager.instance.livesLeft -= 1;
+            GameManager.instance.checkIfGameOver();
+            GameManager.instance.currentOrders.Remove(this.gameObject);
+            Destroy(this.gameObject);
+        }
     }
 
     private void determineOrder()
@@ -74,10 +82,10 @@ public class Order : MonoBehaviour
         //else
         createBurgerOrder();
 
-        foreach (string item in requiredIngredients)
-        {
-            Debug.Log(item);
-        }
+        //foreach (string item in requiredIngredients)
+        //{
+        //    Debug.Log(item);
+        //}
     }
 
     private void createSaladOrder()
@@ -132,10 +140,23 @@ public class Order : MonoBehaviour
         int orderPoints = 0;
 
         float timeToMake = Time.time - timeOfInitialization;
-        if (timeToMake < cutoffForFullPoints)
-            orderPoints += 50;
-        else
-            orderPoints += 50 * (int)Math.Round(timeToMake / cutoffForFullPoints);
+        if (timeToMake < cutoffForLifeLoss)
+        {
+            orderPoints += (int)Math.Round(10 * (cutoffForLifeLoss / (timeToMake + 5)));
+        }
+
+        Plate plate = GameObject.Find("Plate").GetComponent<Plate>();
+        for (int i = 0; i < plate.currentIngredients.Count - 1; i++)
+        {
+            //Debug.Log(plate.currentIngredients[i].name + "Hey");
+            if (requiredIngredients.Contains(plate.currentIngredients[i].name + "(Clone)"));
+            {
+                orderPoints += 5;
+                requiredIngredients.Remove(plate.currentIngredients[i].name);
+                Debug.Log("You scored for ingredient: " + plate.currentIngredients[i].name);
+            }
+        }
+
 
         GameObject.FindObjectOfType<Plate>().removeAllIngredients();
 

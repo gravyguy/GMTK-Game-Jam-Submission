@@ -11,6 +11,8 @@ using Vector3 = UnityEngine.Vector3;
 public class GameManager : MonoBehaviour
 {
     public int points;
+    public int orderNumber;
+    public int livesLeft;
 
     public static GameManager instance = null;
     // Dictionaries to store possible ingredients for each order and their likelihood (100 means always a component, 0 means never).
@@ -43,6 +45,7 @@ public class GameManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        livesLeft = 5;
         points = 0;
         if (instance == null)
             instance = this;
@@ -50,14 +53,14 @@ public class GameManager : MonoBehaviour
             Destroy(gameObject);
 
         // Add all possible burger ingredients to the list
-        possibleBurgerIngredients.Add("cheese", 70);
-        possibleBurgerIngredients.Add("lettuce", 60);
-        possibleBurgerIngredients.Add("tomato", 50);
-        possibleBurgerIngredients.Add("onions", 40);
-        possibleBurgerIngredients.Add("pickles", 30);
-        possibleBurgerIngredients.Add("ketchup", 70);
-        possibleBurgerIngredients.Add("mustard", 30);
-        possibleBurgerIngredients.Add("secret sauce", 50);
+        possibleBurgerIngredients.Add("Cheese", 70);
+        possibleBurgerIngredients.Add("Lettuce", 60);
+        possibleBurgerIngredients.Add("Tomato", 50);
+        possibleBurgerIngredients.Add("Onions", 40);
+        possibleBurgerIngredients.Add("Pickles", 30);
+        possibleBurgerIngredients.Add("Ketchup", 70);
+        possibleBurgerIngredients.Add("Mustard", 30);
+        possibleBurgerIngredients.Add("SecretSauce", 50);
 
         // Add all possible salad ingredients to the list
         possibleSaladIngredients.Add("chicken", 55);
@@ -102,11 +105,20 @@ public class GameManager : MonoBehaviour
         // Handles addition of new orders
         if (Time.time > timeOfNextOrder && currentOrders.Count < 5)
         {
+            orderNumber++;
             timeOfNextOrder += timeBetweenOrders;
             GameObject newOrder = Instantiate(orderPrefab);
             newOrder.transform.SetParent(GameObject.FindGameObjectWithTag("IntObjContainer").transform);
             currentOrders.Add(newOrder);
             repositionOrders();
+        }
+    }
+
+    public void checkIfGameOver()
+    {
+        if (livesLeft <= 0)
+        {
+            Destroy(this.gameObject);
         }
     }
 

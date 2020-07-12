@@ -23,7 +23,7 @@ public class FoodContainer : MonoBehaviour
         if (GameManager.instance.currentItem == null)
         {
             GameManager.instance.currentItem = Instantiate(foodToCreate);
-            Debug.Log("Made it");
+            //Debug.Log("Made it");
         }
     }
 }
