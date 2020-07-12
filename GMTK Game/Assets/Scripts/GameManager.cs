@@ -28,8 +28,9 @@ public class GameManager : MonoBehaviour
     private double timeOfNextGhost = 20f;
     private double timeBetweenGhosts = 10f;
 
+    [SerializeField]
     private double timeOfNextOrder = 0f;
-    private double timeBetweenOrders = 2f;
+    private double timeBetweenOrders = 20f;
 
     // Boolean that determines if a ghost event was successfully completed
     private bool ghostEventSuccess = false;
@@ -106,6 +107,7 @@ public class GameManager : MonoBehaviour
         if (Time.time > timeOfNextOrder && currentOrders.Count < 5)
         {
             orderNumber++;
+            timeBetweenOrders = timeBetweenOrders * .97;
             timeOfNextOrder += timeBetweenOrders;
             GameObject newOrder = Instantiate(orderPrefab);
             newOrder.transform.SetParent(GameObject.FindGameObjectWithTag("IntObjContainer").transform);

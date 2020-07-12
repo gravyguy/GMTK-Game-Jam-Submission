@@ -34,7 +34,7 @@ public class Order : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        cutoffForLifeLoss = 10f;
+        cutoffForLifeLoss = 30f;
         collider = GetComponent<BoxCollider2D>();
         onPlate = false;
         timeOfInitialization = Time.timeSinceLevelLoad;
@@ -43,7 +43,7 @@ public class Order : MonoBehaviour
         orderNumber.text = "Order #" + GameManager.instance.orderNumber;
         if (orderType == "salad")
             orderTypeText.text = "salad";
-        else if (requiredIngredients[0] == "burger")
+        else if (requiredIngredients[0] == "Burger")
             orderTypeText.text = "burger";
         else
             orderTypeText.text = requiredIngredients[0] + " burger";
@@ -118,11 +118,11 @@ public class Order : MonoBehaviour
         int rInt = r.Next(0, 100);
 
         if (rInt < burgerRarity)
-            requiredIngredients.Add("burger");
+            requiredIngredients.Add("Burger");
         else if (rInt < burgerRarity + chickenRarity)
-            requiredIngredients.Add("chicken");
+            requiredIngredients.Add("Chicken");
         else
-            requiredIngredients.Add("veggie");
+            requiredIngredients.Add("Veggie");
 
         // Determine additional ingredients
         foreach (KeyValuePair<string, int> entry in GameManager.instance.possibleBurgerIngredients)
