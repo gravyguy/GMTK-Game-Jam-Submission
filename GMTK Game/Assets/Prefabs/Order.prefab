@@ -330,7 +330,7 @@ GameObject:
   - component: {fileID: 8133860192386722092}
   m_Layer: 5
   m_Name: Order
-  m_TagString: Untagged
+  m_TagString: Ticket
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

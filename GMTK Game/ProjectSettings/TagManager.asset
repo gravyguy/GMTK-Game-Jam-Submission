@@ -11,6 +11,8 @@ TagManager:
   - Condiments
   - Tool
   - Whole
+  - Ticket
+  - Burner
   layers:
   - Default
   - TransparentFX
